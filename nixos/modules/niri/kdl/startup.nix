@@ -1,0 +1,3 @@
+''
+  spawn-at-startup "ironbar"
+''
