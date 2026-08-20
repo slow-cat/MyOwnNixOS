@@ -7,7 +7,7 @@
 
 let
   stylixHex = config.lib.stylix.colors.withHashtag;
-  userChrome = import ./chrome { inherit stylixHex; };
+  userChrome = import ./chrome { inherit pkgs stylixHex; };
   browserPolicies = import ./browser-policies.nix;
   cookiePolicies = import ./cookies.nix;
   profile = import ./profile.nix { inherit stylixHex; };

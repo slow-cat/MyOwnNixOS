@@ -1,6 +1,7 @@
-{ stylixHex }:
+{ pkgs, stylixHex }:
 
 let
+  cascade = import ./cascade { inherit pkgs; };
   theme =
     builtins.replaceStrings
       [
@@ -35,7 +36,6 @@ let
       ]
       (builtins.readFile ./theme.css);
   cssFiles = [
-    ./cascade.css
     ./toolbar-layout.css
     ./controls.css
     ./appearance.css
@@ -44,4 +44,10 @@ let
     ./utility-windows.css
   ];
 in
-builtins.concatStringsSep "\n" ([ theme ] ++ map builtins.readFile cssFiles)
+builtins.concatStringsSep "\n" (
+  [
+    theme
+    cascade
+  ]
+  ++ map builtins.readFile cssFiles
+)
