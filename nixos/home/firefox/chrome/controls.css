@@ -1,0 +1,48 @@
+#identity-icon-label,
+#identity-icon-labels {
+  display: none !important;
+}
+
+#back-button,
+#forward-button {
+  display: flex !important;
+}
+
+#tabs-newtab-button,
+#new-tab-button,
+#alltabs-button {
+  display: none !important;
+}
+
+#nav-bar .webextension-browser-action,
+#nav-bar toolbarbutton[data-extensionid],
+#nav-bar toolbarbutton[id$="-browser-action"] {
+  display: none !important;
+}
+
+#unified-extensions-button,
+#PanelUI-menu-button {
+  position: fixed !important;
+  inset-block-start: 0 !important;
+  width: var(--uc-end-control-width) !important;
+  min-width: var(--uc-end-control-width) !important;
+  height: var(--tab-min-height) !important;
+  z-index: 1 !important;
+}
+
+#unified-extensions-button {
+  inset-inline-end: var(--uc-end-control-width) !important;
+}
+
+#PanelUI-menu-button {
+  inset-inline-end: 0 !important;
+  padding: 0 !important;
+}
+
+#PanelUI-menu-button .toolbarbutton-icon {
+  width: 16px !important;
+}
+
+#PanelUI-menu-button .toolbarbutton-badge-stack {
+  padding: var(--toolbarbutton-inner-padding) !important;
+}

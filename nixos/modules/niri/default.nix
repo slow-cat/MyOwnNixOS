@@ -1,11 +1,11 @@
 {
   config,
+  host,
   pkgs,
   ...
 }:
 
 let
-  host = if builtins.pathExists ../host.nix then import ../host.nix else { isQemu = false; };
   modKey = if host.isQemu then "Alt" else "Super";
 
   qr = import ./features/qr.nix { inherit pkgs; };
@@ -15,7 +15,7 @@ let
   fragments = {
     layout = import ./kdl/layout.nix;
     input = import ./kdl/input.nix { inherit modKey; };
-    bindings = import ./kdl/bindings.nix;
+    bindings = builtins.readFile ./kdl/bindings.kdl;
     startup = import ./kdl/startup.nix;
     screencast = import ./kdl/screencast.nix;
     float = import ./kdl/float.nix;
@@ -35,9 +35,7 @@ let
     cursor = pkgs.writeText "config_cursor.kdl" fragments.cursor;
   };
 
-  niriConfigRaw = pkgs.writeText "niri-config.kdl" ''
-    // niri config based on prior sway setup
-
+  uncheckedNiriConfig = pkgs.writeText "niri-config.kdl" ''
     prefer-no-csd
 
     include "${fragmentFiles.layout}"
@@ -51,29 +49,25 @@ let
     include "${fragmentFiles.cursor}"
   '';
 
-  # Make syntax errors fail the Nix build rather than the graphical login.
-  niriConfig =
+  validatedNiriConfig =
     pkgs.runCommand "validated-niri-config.kdl"
       {
         nativeBuildInputs = [ config.programs.niri.package ];
       }
       ''
-        cp ${niriConfigRaw} "$out"
+        cp ${uncheckedNiriConfig} "$out"
         niri validate --config "$out"
       '';
 in
 {
   programs.niri.enable = true;
 
-  # Niri officially supports NIRI_CONFIG, so no ~/.config/niri/config.kdl
-  # or config.kdl -> config.no-csd.kdl selector symlink is needed.
   environment.sessionVariables = {
-    NIRI_CONFIG = toString niriConfig;
+    NIRI_CONFIG = toString validatedNiriConfig;
     NIXOS_OZONE_WL = "1";
   };
 
-  # Ensure the systemd-managed niri process receives the immutable config.
-  systemd.user.services.niri.environment.NIRI_CONFIG = toString niriConfig;
+  systemd.user.services.niri.environment.NIRI_CONFIG = toString validatedNiriConfig;
 
   environment.systemPackages = with pkgs; [
     dash
@@ -91,9 +85,7 @@ in
     ironbar
   ];
 
-  # security.polkit.enable = true;
   security.pam.services.swaylock = { };
-  # services.gnome.gnome-keyring.enable = true;
   hardware.bluetooth.enable = true;
 
   security.rtkit.enable = true;
@@ -103,8 +95,6 @@ in
     pulse.enable = true;
   };
 
-  # These replace the original spawn-at-startup entries. Niri's standard
-  # niri.service brings graphical-session.target up and tears it down.
   systemd.user.services.niri-swayidle = {
     description = "Idle management for niri";
     wantedBy = [ "graphical-session.target" ];

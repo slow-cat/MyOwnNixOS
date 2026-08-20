@@ -6,10 +6,7 @@
     broot.enable = true;
     fcitx5.enable = true;
     foot.enable = true;
-    # fzf's Base16 mode uses the ANSI palette that Stylix installs in both the
-    # Linux console and terminal emulators, so it also works on a real TTY.
     fzf.enable = true;
-    # gdu.enable = true;
     gtk.enable = true;
     mako.enable = true;
     mpv.enable = true;
@@ -27,11 +24,10 @@
 
     firefox = {
       enable = true;
-      profileNames = [ "default" ];
+      profileNames = [ "dev-edition-default" ];
       colorTheme.enable = true;
     };
 
-    # Preserve application-native themes for these editors.
     helix.enable = false;
     zed = {
       enable = true;

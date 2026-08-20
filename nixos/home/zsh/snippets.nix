@@ -1,13 +1,6 @@
+{ pkgs }:
+
 {
-  config,
-  lib,
-  pkgs,
-  ...
-}:
-
-let
-  completionDump = "${config.xdg.cacheHome}/zsh/zcompdump";
-
   shellSetup = ''
     export LD_LIBRARY_PATH="/usr/local/lib''${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}"
     WORDCHARS='*?_-.[]~=/&;!#$%^(){}<>'
@@ -124,102 +117,4 @@ let
     autoload -Uz add-zsh-hook vcs_info
     add-zsh-hook precmd prepcmd
   '';
-in
-{
-  # NixOS sets ZDOTDIR before user startup files are read, so no ~/.zshenv
-  # bootstrap is needed. The generated files remain symlinks into the Nix store.
-  home.file.".zshenv".enable = false;
-
-  home.sessionPath = [
-    "$HOME/.cargo/bin"
-    "$HOME/go/bin"
-  ];
-
-  programs.zsh = {
-    enable = true;
-    dotDir = "${config.xdg.configHome}/zsh";
-    enableCompletion = true;
-    completionInit = ''
-      ${pkgs.coreutils}/bin/mkdir -p "${config.xdg.cacheHome}/zsh"
-      autoload -Uz compinit
-      compinit -d "${completionDump}"
-      if [[ -s "${completionDump}" && ( ! -s "${completionDump}.zwc" || "${completionDump}" -nt "${completionDump}.zwc" ) ]]; then
-        echo "make new zcompdump.zwc"
-        zcompile "${completionDump}"
-      fi
-    '';
-
-    history.path = "${config.xdg.stateHome}/zsh/history";
-
-    autosuggestion.enable = true;
-    syntaxHighlighting.enable = true;
-
-    plugins = [
-      {
-        name = "fzf-tab";
-        src = pkgs.zsh-fzf-tab;
-        file = "share/fzf-tab/fzf-tab.plugin.zsh";
-      }
-    ];
-
-    shellAliases = {
-      g = "git";
-      la = "ls -la";
-      ll = "ls -l";
-      nr = "sudo nixos-rebuild switch";
-    };
-
-    sessionVariables = {
-      VIRTUAL_ENV_DISABLE_PROMPT = "";
-      WINIT_UNIX_BACKEND = "x11";
-    };
-
-    initContent = lib.mkOrder 1150 (
-      lib.concatStringsSep "\n" [
-        shellSetup
-        basicBindings
-        navigationFunctions
-        enterWidget
-        bindingInspectorWidget
-        promptSetup
-      ]
-    );
-  };
-
-  programs.atuin = {
-    enable = true;
-    enableZshIntegration = true;
-    themes.stylix = {
-      # Use the ANSI slots themed by Stylix. Unlike literal RGB values, these
-      # remain colored on the Linux console's 16-color TTY.
-      theme.name = "stylix";
-      colors = {
-        AlertError = "@red";
-        AlertInfo = "@cyan";
-        AlertWarn = "@yellow";
-        Annotation = "@grey";
-        Guidance = "@dark_grey";
-        Important = "@magenta";
-        Title = "@blue";
-      };
-    };
-    settings = {
-      auto_sync = false;
-      enter_accept = true;
-      theme.name = "stylix";
-    };
-  };
-
-  programs.broot.enableZshIntegration = true;
-
-  programs.direnv = {
-    enable = true;
-    enableZshIntegration = true;
-    nix-direnv.enable = true;
-  };
-
-  programs.zoxide = {
-    enable = true;
-    enableZshIntegration = true;
-  };
 }

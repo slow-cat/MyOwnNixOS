@@ -8,7 +8,6 @@
     ];
   };
   kdl = ''
-    // Screenshots OCR
     binds {
         Print repeat=false{ spawn-sh r#"grim -g "$(slurp)" /tmp/$(date +"%Y-%m-%d-%H%M%S_screenshot.png")"#; }
         Ctrl+Print repeat=false{ spawn-sh r#"grim -g "$(slurp)" - | wl-copy"#; }

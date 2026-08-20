@@ -1,0 +1,155 @@
+:root:not([chromehidden~="toolbar"]) #navigator-toolbox::before {
+  content: "";
+  position: fixed;
+  inset: 0 0 auto 0;
+  width: 100vw;
+  height: 2px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent !important;
+  box-shadow: none !important;
+  opacity: 0 !important;
+  pointer-events: auto !important;
+}
+
+:root:not([chromehidden~="toolbar"])
+  #navigator-toolbox:not(:hover):not(:focus-within):not(
+    :has(#urlbar:is([focused], [open]))
+  ):not([customizing]) {
+  min-height: 0 !important;
+  max-height: 0 !important;
+  height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+  opacity: 0 !important;
+  overflow: visible !important;
+  pointer-events: none !important;
+}
+
+:root:not([chromehidden~="toolbar"])
+  #navigator-toolbox:not(:hover):not(:focus-within):not(
+    :has(#urlbar:is([focused], [open]))
+  ):not([customizing])
+  :is(
+    #toolbar-menubar,
+    #titlebar,
+    #TabsToolbar,
+    #nav-bar,
+    #PersonalToolbar,
+    #notifications-toolbar,
+    #urlbar,
+    #urlbar-container,
+    #urlbar-input-container,
+    #urlbar-input
+  ) {
+  min-height: 0 !important;
+  max-height: 0 !important;
+  height: 0 !important;
+  line-height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+  opacity: 0 !important;
+  overflow: hidden !important;
+}
+
+:root:not([chromehidden~="toolbar"])
+  #navigator-toolbox:not(:hover):not(:focus-within):not(
+    :has(#urlbar:is([focused], [open]))
+  ):not([customizing])
+  :is(
+    #nav-bar .toolbarbutton-1,
+    #nav-bar toolbarbutton,
+    #nav-bar .toolbaritem-combined-buttons,
+    #nav-bar .customization-target > *,
+    #TabsToolbar toolbarbutton,
+    #TabsToolbar .tabbrowser-tab
+  ) {
+  min-width: 0 !important;
+  max-width: 0 !important;
+  width: 0 !important;
+  min-height: 0 !important;
+  max-height: 0 !important;
+  height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+  opacity: 0 !important;
+  overflow: hidden !important;
+}
+
+:root:not([chromehidden~="toolbar"])
+  #navigator-toolbox:is(
+    :hover,
+    :focus-within,
+    :has(#urlbar:is([focused], [open])),
+    [customizing]
+  ) {
+  min-height: var(--tab-min-height) !important;
+  max-height: none !important;
+  height: auto !important;
+  padding-inline-end: calc(2 * var(--uc-end-control-width)) !important;
+  opacity: 1 !important;
+  overflow: visible !important;
+  pointer-events: auto !important;
+}
+
+:root:not([chromehidden~="toolbar"])
+  #navigator-toolbox:is(:hover, :focus-within, [customizing]) {
+  grid-template-columns: minmax(0, var(--uc-urlbar-min-width)) minmax(0, 1fr);
+}
+
+:root:not([chromehidden~="toolbar"])
+  #navigator-toolbox:has(#urlbar:is([focused], [open])) {
+  grid-template-columns: minmax(0, var(--uc-urlbar-max-width)) minmax(0, 1fr);
+}
+
+:root:not([chromehidden~="toolbar"])
+  #navigator-toolbox:is(
+    :hover,
+    :focus-within,
+    :has(#urlbar:is([focused], [open])),
+    [customizing]
+  )
+  :is(#titlebar, #TabsToolbar, #nav-bar) {
+  min-height: var(--tab-min-height) !important;
+  max-height: none !important;
+  height: auto !important;
+  line-height: normal !important;
+  opacity: 1 !important;
+  overflow: visible !important;
+}
+
+:root:not([chromehidden~="toolbar"])
+  #navigator-toolbox:is(
+    :hover,
+    :focus-within,
+    :has(#urlbar:is([focused], [open])),
+    [customizing]
+  )
+  :is(#urlbar, #urlbar-container, #urlbar-input-container) {
+  min-height: var(--tab-min-height) !important;
+  max-height: none !important;
+  height: var(--tab-min-height) !important;
+  line-height: normal !important;
+  opacity: 1 !important;
+  overflow: visible !important;
+}
+
+:root:not([chromehidden~="toolbar"])
+  #navigator-toolbox:is(
+    :hover,
+    :focus-within,
+    :has(#urlbar:is([focused], [open])),
+    [customizing]
+  )
+  #urlbar-input {
+  min-height: 0 !important;
+  max-height: none !important;
+  height: auto !important;
+  line-height: normal !important;
+  opacity: 1 !important;
+  overflow: visible !important;
+}

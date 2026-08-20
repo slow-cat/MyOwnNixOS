@@ -8,7 +8,6 @@ in
     (import "${home-manager}/nixos")
   ];
 
-  # Preserve pre-Home-Manager dotfiles during the first activation.
   home-manager.backupFileExtension = "hm-backup";
 
   users.users.eve.isNormalUser = true;
@@ -20,7 +19,7 @@ in
       ./broot.nix
       ./bun.nix
       ./fcitx5.nix
-      ./firefox.nix
+      ./firefox
       ./fzf.nix
       ./foot.nix
       ./gdu.nix
@@ -32,15 +31,13 @@ in
       ./vim.nix
       ./wofi.nix
       ./zathura.nix
-      ./helix.nix
-      ./tmux.nix
-      ./zed.nix
-      ./zsh.nix
+      ./helix
+      ./tmux
+      ./zed
+      ./zsh
       ./nwg-drawwer.nix
-      ./chawan.nix
+      ./chawan
     ];
-    # The state version is required and should stay at the version you
-    # originally installed.
     home.stateVersion = "26.05";
   };
 }

@@ -1,0 +1,70 @@
+#nav-bar .toolbarbutton-1 > .toolbarbutton-icon,
+#nav-bar .toolbarbutton-1 > .toolbarbutton-badge-stack {
+  background: transparent !important;
+  color: var(--uc-inverted-colour) !important;
+  border: 0 !important;
+  border-radius: 6px !important;
+  box-shadow: none !important;
+}
+
+#nav-bar .toolbarbutton-1:hover > .toolbarbutton-icon,
+#nav-bar .toolbarbutton-1:hover > .toolbarbutton-badge-stack,
+#nav-bar .toolbarbutton-1[open] > .toolbarbutton-icon,
+#nav-bar .toolbarbutton-1[open] > .toolbarbutton-badge-stack {
+  background-color: color-mix(in srgb, var(--uc-surface-colour) 65%, transparent) !important;
+}
+
+#urlbar-background {
+  background-color: var(--uc-highlight-colour) !important;
+  border: 1px solid var(--uc-surface-colour) !important;
+  border-radius: 7px !important;
+}
+
+#urlbar:is([focused], [open]) > #urlbar-background {
+  border-color: var(--uc-accent-colour) !important;
+  box-shadow: 0 0 0 1px var(--uc-accent-colour) !important;
+}
+
+#urlbar,
+#urlbar-input {
+  color: var(--uc-inverted-colour) !important;
+  caret-color: var(--uc-accent-colour) !important;
+}
+
+#urlbar-input {
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+#urlbar-input::placeholder {
+  color: var(--uc-muted-colour) !important;
+}
+
+.tabbrowser-tab .tab-background {
+  margin: 2px 1px !important;
+  border-radius: 5px !important;
+}
+
+.tabbrowser-tab:not([selected]) .tab-background {
+  background-color: color-mix(in srgb, var(--uc-highlight-colour) 58%, transparent) !important;
+}
+
+.tabbrowser-tab:not([selected]):hover .tab-background {
+  background-color: var(--uc-surface-colour) !important;
+}
+
+.tabbrowser-tab[selected] .tab-background {
+  background-color: color-mix(in srgb, var(--uc-highlight-colour) 82%, transparent) !important;
+}
+
+.urlbarView,
+.urlbarView-body-outer,
+.urlbarView-body-inner,
+#urlbar-results {
+  background-color: var(--uc-highlight-colour) !important;
+  color: var(--uc-inverted-colour) !important;
+}
+
+scrollbar {
+  width: 2px !important;
+}

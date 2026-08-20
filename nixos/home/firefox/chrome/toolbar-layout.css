@@ -1,0 +1,97 @@
+#toolbar-menubar,
+#PersonalToolbar {
+  display: none !important;
+}
+
+:root:not([chromehidden~="toolbar"]) #navigator-toolbox {
+  display: grid !important;
+  grid-template-columns: max-content minmax(0, 1fr);
+  grid-template-rows: auto;
+  position: fixed !important;
+  inset: 0 0 auto 0 !important;
+  width: 100vw !important;
+  box-sizing: border-box !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+  z-index: 2147483647 !important;
+  background: var(--uc-base-colour) !important;
+  background-image: none !important;
+  backdrop-filter: none !important;
+  transform: none !important;
+  transition: none !important;
+  overflow: visible !important;
+}
+
+:root:not([chromehidden~="toolbar"]) #nav-bar {
+  display: flex !important;
+  flex-flow: row nowrap !important;
+  grid-column: 1;
+  grid-row: 1;
+  width: auto !important;
+  min-width: 0 !important;
+  max-width: none !important;
+  background-color: var(--uc-base-colour) !important;
+  background-image: none !important;
+}
+
+:root:not([chromehidden~="toolbar"]) #nav-bar-customization-target {
+  display: flex !important;
+  flex: 1 1 auto !important;
+  flex-flow: row nowrap !important;
+  width: 100% !important;
+  min-width: 0 !important;
+  max-width: none !important;
+  align-items: center !important;
+}
+
+:root:not([chromehidden~="toolbar"]) #urlbar-container {
+  display: flex !important;
+  flex: 1 1 auto !important;
+  width: auto !important;
+  min-width: 0 !important;
+  max-width: none !important;
+}
+
+:root:not([chromehidden~="toolbar"]) #titlebar {
+  display: block !important;
+  grid-column: 2;
+  grid-row: 1;
+  width: auto !important;
+  min-width: 0 !important;
+  overflow: hidden !important;
+}
+
+:root:not([chromehidden~="toolbar"]) #TabsToolbar {
+  display: flex !important;
+  width: 100% !important;
+  min-width: 0 !important;
+  overflow: hidden !important;
+}
+
+:root:not([chromehidden~="toolbar"]) #TabsToolbar-customization-target {
+  display: flex !important;
+  flex: 1 1 auto !important;
+  width: 100% !important;
+  min-width: 0 !important;
+  max-width: 100% !important;
+  overflow: hidden !important;
+}
+
+:root:not([chromehidden~="toolbar"]) #tabbrowser-tabs {
+  flex: 1 1 auto !important;
+  width: auto !important;
+  min-width: 0 !important;
+  max-width: 100% !important;
+  overflow: hidden !important;
+}
+
+:root:not([chromehidden~="toolbar"]) #tabbrowser-arrowscrollbox {
+  min-width: 0 !important;
+  max-width: 100% !important;
+}
+
+#notifications-toolbar {
+  grid-column: 1 / -1;
+  grid-row: 2;
+}

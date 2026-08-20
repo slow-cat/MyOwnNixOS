@@ -4,7 +4,7 @@
 <!-- Qemuとかブート周り -->
 <!-- Rustup -->
 
-rescue environ
+<!-- rescue environ -->
 
 <!-- something lacking cli -->
 <!-- command file -->

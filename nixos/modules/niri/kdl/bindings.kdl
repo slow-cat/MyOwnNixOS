@@ -1,0 +1,110 @@
+binds {
+    Mod+Shift+Slash repeat=false{ show-hotkey-overlay; }
+
+    // Launchers
+    Mod+Return repeat=false{ spawn "foot"; }
+    // Mod+D repeat=false{ spawn "wofi" "--show" "drun"; }
+    Mod+D repeat=false{ spawn "nwg-drawer"; }
+
+    // Session / window management
+    Mod+Shift+Q { close-window; }
+    Mod+Shift+E repeat=false{ quit; }
+
+    // Focus movement
+    Mod+Left  { focus-column-left; }
+    Mod+Down  { focus-window-down; }
+    Mod+Up    { focus-window-up; }
+    Mod+Right { focus-column-right; }
+    Mod+H     { focus-column-left; }
+    Mod+J     { focus-window-down; }
+    Mod+K     { focus-window-up; }
+    Mod+L     { focus-column-right; }
+
+    // Move windows/columns
+    Mod+Shift+Left  { move-column-left; }
+    Mod+Shift+Down  { move-window-down; }
+    Mod+Shift+Up    { move-window-up; }
+    Mod+Shift+Right { move-column-right; }
+    Mod+Shift+H     { move-column-left; }
+    Mod+Shift+J     { move-window-down; }
+    Mod+Shift+K     { move-window-up; }
+    Mod+Shift+L     { move-column-right; }
+
+    // Workspaces 1-10 (0 maps to 10)
+    Mod+1 { focus-workspace 1; }
+    Mod+2 { focus-workspace 2; }
+    Mod+3 { focus-workspace 3; }
+    Mod+4 { focus-workspace 4; }
+    Mod+5 { focus-workspace 5; }
+    Mod+6 { focus-workspace 6; }
+    Mod+7 { focus-workspace 7; }
+    Mod+8 { focus-workspace 8; }
+    Mod+9 { focus-workspace 9; }
+    Mod+0 { focus-workspace 10; }
+    Mod+Shift+1 { move-column-to-workspace 1; }
+    Mod+Shift+2 { move-column-to-workspace 2; }
+    Mod+Shift+3 { move-column-to-workspace 3; }
+    Mod+Shift+4 { move-column-to-workspace 4; }
+    Mod+Shift+5 { move-column-to-workspace 5; }
+    Mod+Shift+6 { move-column-to-workspace 6; }
+    Mod+Shift+7 { move-column-to-workspace 7; }
+    Mod+Shift+8 { move-column-to-workspace 8; }
+    Mod+Shift+9 { move-column-to-workspace 9; }
+    Mod+Shift+0 { move-column-to-workspace 10; }
+
+    // Layout toggles
+    Mod+F repeat=false{ fullscreen-window; }
+    Mod+Shift+Space repeat=false{ toggle-window-floating; }
+    Mod+Space repeat=false{ switch-focus-between-floating-and-tiling; }
+    Mod+W repeat=false{ toggle-column-tabbed-display; }
+    Mod+O repeat=false { toggle-overview; }
+
+    // Split/merge columns: Mod+B to expel focused window to a new column (side-by-side),
+    // Mod+Shift+B to pull the right-hand window back into this column (stacked).
+    Mod+B repeat=false{ expel-window-from-column; }
+    Mod+Shift+B repeat=false{ consume-window-into-column; }
+
+    // Resize-style tweaks
+    Mod+Minus { set-column-width "-10%"; }
+    Mod+Equal { set-column-width "+10%"; }
+    Mod+Shift+Minus { set-window-height "-10%"; }
+    Mod+Shift+Equal { set-window-height "+10%"; }
+
+    // Media / system keys
+    XF86AudioMute allow-when-locked=true  repeat=false{ spawn "pactl" "set-sink-mute" "@DEFAULT_SINK@" "toggle"; }
+    XF86AudioLowerVolume allow-when-locked=true repeat=true{ spawn "pactl" "set-sink-volume" "@DEFAULT_SINK@" "-2%"; }
+    XF86AudioRaiseVolume allow-when-locked=true  repeat=true{ spawn "pactl" "set-sink-volume" "@DEFAULT_SINK@" "+2%"; }
+    XF86AudioMicMute allow-when-locked=true  repeat=false{ spawn "pactl" "set-source-mute" "@DEFAULT_SOURCE@" "toggle"; }
+    XF86MonBrightnessDown allow-when-locked=true repeat=true cooldown-ms=150 { spawn "brightnessctl" "set" "2%-"; }
+    XF86MonBrightnessUp allow-when-locked=true repeat=true cooldown-ms=150 { spawn "brightnessctl" "set" "2%+"; }
+    XF86Launch7 allow-when-locked=true repeat=true cooldown-ms=150 { spawn "brightnessctl" "set" "2%-"; }
+    XF86Launch5 allow-when-locked=true repeat=true cooldown-ms=150 { spawn "brightnessctl" "set" "2%+"; }
+
+    // Utilities
+    Mod+Escape allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
+    Mod+Shift+P repeat=false{ power-off-monitors; }
+
+    // Mouse wheel resizing: horizontal adjusts column width, vertical adjusts window height
+    Mod+WheelScrollRight { set-column-width "-1%"; }
+    Mod+WheelScrollLeft  { set-column-width "+1%"; }
+    Mod+WheelScrollUp    { set-window-height "+1%"; }
+    Mod+WheelScrollDown  { set-window-height "-1%"; }
+
+    Mod+TouchpadScrollRight { set-column-width "-1%"; }
+    Mod+TouchpadScrollLeft  { set-column-width "+1%"; }
+    Mod+TouchpadScrollUp    { set-window-height "+1%"; }
+    Mod+TouchpadScrollDown  { set-window-height "-1%"; }
+
+    Mod+Alt+l { set-column-width "50%"; }
+
+    // Arrow-key resizing (same increments as wheel)
+    Mod+Ctrl+Right { set-column-width "+5%"; }
+    Mod+Ctrl+Left  { set-column-width "-5%"; }
+    Mod+Ctrl+Up    { set-window-height "-5%"; }
+    Mod+Ctrl+Down  { set-window-height "+5%"; }
+}
+gestures {
+    hot-corners {
+        top-left
+    }
+}

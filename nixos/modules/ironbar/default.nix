@@ -50,8 +50,6 @@ in
     nerd-fonts.jetbrains-mono
   ];
 
-  # No ~/.config/ironbar symlink is needed. Ironbar officially supports
-  # overriding both config paths with these environment variables.
   environment.sessionVariables = {
     IRONBAR_CONFIG = toString ironbarConfig;
     IRONBAR_CSS = toString ironbarCss;

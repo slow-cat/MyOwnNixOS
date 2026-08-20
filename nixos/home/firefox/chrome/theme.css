@@ -1,0 +1,57 @@
+:root {
+  --uc-border-radius: 8px;
+  --uc-status-panel-spacing: 12px;
+  --uc-active-tab-width: clamp(100px, 30vw, 300px);
+  --uc-inactive-tab-width: clamp(100px, 20vw, 200px);
+  --uc-urlbar-min-width: 58vw;
+  --uc-urlbar-max-width: 78vw;
+  --uc-end-control-width: 36px;
+  --uc-identity-glow: 0 1px 10px 1px;
+  --container-tabs-indicator-margin: 10px;
+  --show-tab-close-button: none;
+  --show-tab-close-button-hover: none;
+  --tab-min-height: 36px !important;
+  --toolbarbutton-inner-padding: 6px !important;
+
+  --uc-identity-colour-blue: @base0D@ !important;
+  --uc-identity-colour-turquoise: @base0C@ !important;
+  --uc-identity-colour-green: @base0B@ !important;
+  --uc-identity-colour-yellow: @base0A@ !important;
+  --uc-identity-colour-orange: @base09@ !important;
+  --uc-identity-colour-red: @base08@ !important;
+  --uc-identity-colour-pink: @base0F@ !important;
+  --uc-identity-colour-purple: @base0E@ !important;
+
+  --uc-base-colour: @base00@ !important;
+  --uc-highlight-colour: @base01@ !important;
+  --uc-surface-colour: @base02@ !important;
+  --uc-muted-colour: @base03@ !important;
+  --uc-inverted-colour: @base05@ !important;
+  --uc-accent-colour: @base0D@ !important;
+
+  --lwt-frame: var(--uc-base-colour) !important;
+  --lwt-accent-color: var(--uc-base-colour) !important;
+  --lwt-text-color: var(--uc-inverted-colour) !important;
+  --lwt-tab-text: var(--uc-inverted-colour) !important;
+  --lwt-selected-tab-background-color: var(--uc-highlight-colour) !important;
+  --toolbar-bgcolor: var(--uc-base-colour) !important;
+  --toolbar-color: var(--uc-inverted-colour) !important;
+  --toolbar-field-background-color: var(--uc-highlight-colour) !important;
+  --toolbar-field-color: var(--uc-inverted-colour) !important;
+  --toolbar-field-focus-color: var(--uc-inverted-colour) !important;
+  --toolbar-field-text-color: var(--uc-inverted-colour) !important;
+  --toolbar-field-text-color-focus: var(--uc-inverted-colour) !important;
+  --toolbar-field-focus-background-color: var(--uc-highlight-colour) !important;
+  --toolbar-field-focus-border-color: transparent !important;
+  --toolbarbutton-hover-background: var(--uc-surface-colour) !important;
+  --toolbarbutton-active-background: var(--uc-highlight-colour) !important;
+  --toolbarseparator-color: var(--uc-accent-colour) !important;
+  --urlbar-popup-url-color: var(--uc-accent-colour) !important;
+  --urlbar-box-bgcolor: var(--uc-highlight-colour) !important;
+  --urlbar-box-text-color: var(--uc-muted-colour) !important;
+  --urlbar-box-hover-bgcolor: var(--uc-highlight-colour) !important;
+  --urlbar-box-hover-text-color: var(--uc-inverted-colour) !important;
+  --toolbarbutton-border-radius: var(--uc-border-radius) !important;
+  --tab-border-radius: var(--uc-border-radius) !important;
+  --arrowpanel-border-radius: var(--uc-border-radius) !important;
+}

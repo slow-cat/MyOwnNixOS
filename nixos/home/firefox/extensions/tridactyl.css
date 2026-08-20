@@ -1,0 +1,62 @@
+:root {
+  --tridactyl-font-family: "@monospaceFont@", monospace;
+  --tridactyl-font-family-sans: "@sansSerifFont@", sans-serif;
+  --tridactyl-font-size: @fontSize@px;
+
+  --tridactyl-bg: @base00@;
+  --tridactyl-fg: @base05@;
+  --tridactyl-scrollbar-color: @base02@ @base00@;
+
+  --tridactyl-status-bg: @base01@;
+  --tridactyl-status-fg: @base05@;
+  --tridactyl-status-border: 1px solid @base0D@;
+  --tridactyl-status-border-radius: 4px;
+
+  --tridactyl-search-highlight-color: @base0A@;
+  --tridactyl-search-highlight-active-color: @base0E@;
+
+  --tridactyl-hintspan-fg: @base00@;
+  --tridactyl-hintspan-pressed-fg: @base00@;
+  --tridactyl-hintspan-bg: @base0A@;
+  --tridactyl-hintspan-border-color: @base0E@;
+  --tridactyl-hintspan-border-width: 1px;
+  --tridactyl-hintspan-border-style: solid;
+  --tridactyl-hintspan-js-background: @base0E@;
+  --tridactyl-hintspan-active-fg: @base00@;
+  --tridactyl-hintspan-active-bg: @base0D@;
+  --tridactyl-hint-active-fg: @base00@;
+  --tridactyl-hint-active-bg: @base0B@;
+  --tridactyl-hint-active-outline: 1px solid @base0D@;
+  --tridactyl-hint-bg: color-mix(in srgb, @base0A@ 25%, transparent);
+  --tridactyl-hint-outline: 1px solid @base0A@;
+
+  --tridactyl-vs-bg: @base00@;
+  --tridactyl-vs-fg: @base05@;
+
+  --tridactyl-cmdl-bg: @base00@;
+  --tridactyl-cmdl-fg: @base05@;
+  --tridactyl-cmdl-font-family: var(--tridactyl-font-family);
+
+  --tridactyl-cmplt-bg: @base01@;
+  --tridactyl-cmplt-fg: @base05@;
+  --tridactyl-cmplt-font-family: var(--tridactyl-font-family);
+  --tridactyl-cmplt-border-top: 1px solid @base02@;
+
+  --tridactyl-header-first-bg: @base02@;
+  --tridactyl-header-second-bg: @base01@;
+  --tridactyl-header-third-bg: @base00@;
+  --tridactyl-header-border-bottom: 1px solid @base0D@;
+
+  --tridactyl-url-fg: @base0B@;
+  --tridactyl-url-bg: @base01@;
+  --tridactyl-of-fg: @base05@;
+  --tridactyl-of-bg: @base02@;
+  --tridactyl-highlight-box-bg: @base01@;
+  --tridactyl-highlight-box-fg: @base05@;
+}
+
+:root.TridactylOwnNamespace {
+  color-scheme: dark;
+  scrollbar-color: var(--tridactyl-scrollbar-color);
+  scrollbar-width: thin;
+}

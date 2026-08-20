@@ -1,0 +1,102 @@
+/*
+ * Cascade, vendored and consolidated at commit
+ * 52dd00e76348bab226701c6316a8b6581549d21b.
+ */
+.titlebar-buttonbox-container,
+.titlebar-spacer,
+#pageActionButton,
+#identity-permission-box,
+#identity-box.extensionPage,
+#urlbar-go-button {
+  display: none !important;
+}
+
+#main-window,
+#toolbar-menubar,
+#TabsToolbar,
+#PersonalToolbar,
+#navigator-toolbox,
+#sidebar-box,
+#nav-bar {
+  border: none !important;
+  box-shadow: none !important;
+}
+
+#statuspanel #statuspanel-label {
+  margin: 0 0 var(--uc-status-panel-spacing) var(--uc-status-panel-spacing) !important;
+  border: none !important;
+  border-radius: var(--uc-border-radius) !important;
+}
+
+#urlbar,
+#urlbar * {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.urlbarView-row:hover > .urlbarView-row-inner,
+.urlbarView-row[selected] > .urlbarView-row-inner {
+  background: var(--toolbar-field-focus-background-color) !important;
+}
+
+#tabbrowser-tabs[haspinnedtabs]:not([positionpinnedtabs])
+  > #tabbrowser-arrowscrollbox
+  > .tabbrowser-tab:nth-child(1 of :not([pinned], [hidden])) {
+  margin-inline-start: 0 !important;
+}
+
+.tabbrowser-tab > .tab-stack > .tab-background {
+  box-shadow: none !important;
+}
+
+#tabbrowser-tabs:not([noshadowfortests])
+  .tabbrowser-tab[multiselected]
+  > .tab-stack
+  > .tab-background {
+  outline-color: var(--toolbarseparator-color) !important;
+}
+
+.tabbrowser-tab:not([pinned]) .tab-close-button {
+  display: var(--show-tab-close-button) !important;
+}
+
+.tabbrowser-tab:not([pinned]):hover .tab-close-button {
+  display: var(--show-tab-close-button-hover) !important;
+}
+
+.tabbrowser-tab[selected][fadein]:not([pinned]):not(
+    tab-group[collapsed] .tabbrowser-tab
+  ) {
+  max-width: var(--uc-active-tab-width) !important;
+}
+
+.tabbrowser-tab[fadein]:not([selected]):not([pinned]):not(
+    tab-group[collapsed] .tabbrowser-tab
+  ) {
+  max-width: var(--uc-inactive-tab-width) !important;
+}
+
+#TabsToolbar .tab-context-line {
+  height: 1px !important;
+  margin: 2px var(--container-tabs-indicator-margin) 0 !important;
+  box-shadow: var(--uc-identity-glow) var(--identity-tab-color) !important;
+}
+
+.tab-secondary-label {
+  display: none !important;
+}
+
+.tab-group-label-container > .tab-group-label {
+  width: 100%;
+  border-radius: var(--uc-border-radius) !important;
+  outline: none !important;
+}
+
+.identity-color-blue { --identity-tab-color: var(--uc-identity-colour-blue) !important; }
+.identity-color-turquoise { --identity-tab-color: var(--uc-identity-colour-turquoise) !important; }
+.identity-color-green { --identity-tab-color: var(--uc-identity-colour-green) !important; }
+.identity-color-yellow { --identity-tab-color: var(--uc-identity-colour-yellow) !important; }
+.identity-color-orange { --identity-tab-color: var(--uc-identity-colour-orange) !important; }
+.identity-color-red { --identity-tab-color: var(--uc-identity-colour-red) !important; }
+.identity-color-pink { --identity-tab-color: var(--uc-identity-colour-pink) !important; }
+.identity-color-purple { --identity-tab-color: var(--uc-identity-colour-purple) !important; }

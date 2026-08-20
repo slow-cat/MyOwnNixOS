@@ -26,7 +26,6 @@ let
     cpu = import ./cpu.nix args;
     launcher = import ./launcher.nix args;
     memory = import ./memory.nix args;
-    # menu = import ./menu.nix args;
     music = import ./music.nix args;
     notifications = import ./notifications.nix args;
     power = import ./power.nix args;
@@ -36,7 +35,6 @@ let
     workspaces = import ./workspaces.nix args;
   };
   cornOrder = with elements; [
-    # menu
     workspaces
     launcher
     music
@@ -57,7 +55,6 @@ let
     clock
     clipboard
     launcher
-    # menu
     music
     notifications
     systemInfo

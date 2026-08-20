@@ -1,0 +1,58 @@
+#urlbar:is(:focus-within, [open]) {
+  --urlbar-container-height: var(--tab-min-height) !important;
+  --urlbar-height: var(--tab-min-height) !important;
+  min-height: var(--tab-min-height) !important;
+}
+
+#urlbar-input-container {
+  min-height: var(--tab-min-height) !important;
+  height: var(--tab-min-height) !important;
+  align-items: center !important;
+  position: relative !important;
+  top: 0 !important;
+}
+
+#urlbar-input,
+#urlbar-input::placeholder,
+#urlbar .urlbar-input {
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+#urlbar-input {
+  min-height: var(--tab-min-height) !important;
+  height: var(--tab-min-height) !important;
+  padding-block: 0 !important;
+  line-height: normal !important;
+}
+
+#urlbar-input::-moz-text-control-editing-root {
+  color: inherit !important;
+  background: transparent !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  min-height: 0 !important;
+  line-height: normal !important;
+  padding-block: 0 !important;
+  margin-block: 0 !important;
+  display: block !important;
+}
+
+#urlbar[breakout][breakout-extend] {
+  --urlbar-container-height: var(--tab-min-height) !important;
+  --urlbar-height: var(--tab-min-height) !important;
+  top: 0 !important;
+  margin-block-start: 0 !important;
+  transform: none !important;
+  transition: none !important;
+  animation: none !important;
+}
+
+#urlbar[breakout][breakout-extend] #urlbar-input-container,
+#urlbar[breakout][breakout-extend] #urlbar-input {
+  padding-block: 0 !important;
+  min-height: var(--tab-min-height) !important;
+  height: var(--tab-min-height) !important;
+  line-height: normal !important;
+  transform: none !important;
+}

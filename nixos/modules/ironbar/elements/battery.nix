@@ -15,11 +15,9 @@
             low.when = { percent = 20 charging = false}
             low.format = "󱊡{percentage}%"
 
-            // applies over `low` when charging.
             low-charging.when = { percent = 20 charging = true }
             low-charging.format = "󱊤{percentage}%"
 
-            // applies over `medium-charging` when NOT charging.
             medium.when = { percent = 50 charging = false }
             medium.format = "󱊢{percentage}%"
 

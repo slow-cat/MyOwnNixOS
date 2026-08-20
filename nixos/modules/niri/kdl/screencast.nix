@@ -1,5 +1,4 @@
 ''
-  // Indicate screencasted windows with red colors.
   window-rule {
       match is-window-cast-target=true
 
@@ -23,7 +22,6 @@
           inactive-color "#7d0d2d"
       }
   }
-  //Screen capture
   binds {
       Mod+P {spawn-sh r#"niri msg action set-dynamic-cast-window --id $(niri msg --json pick-window | jq .id)"#; }
       Mod+M {spawn-sh r#"niri msg action set-dynamic-cast-monitor"#; }
