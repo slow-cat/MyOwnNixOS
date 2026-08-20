@@ -56,6 +56,10 @@ in
     "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
 
     "dom.webgpu.enabled" = true;
+    "devtools.chrome.enabled" = true;
+    "devtools.debugger.remote-enabled" = true;
+    "devtools.debugger.prompt-connection" = false;
+    "devtools.toolbox.host" = "window";
     "browser.sessionstore.interval" = 1000000;
     "accessibility.force_disabled" = 1;
     "browser.translation.enable" = false;

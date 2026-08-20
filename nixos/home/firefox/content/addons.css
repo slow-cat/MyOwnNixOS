@@ -1,0 +1,40 @@
+@-moz-document url-prefix("about:addons") {
+  html,
+  body,
+  #main {
+    background-color: var(--uc-content-base) !important;
+    color: var(--uc-content-text) !important;
+  }
+
+  #sidebar {
+    background-color: var(--uc-content-highlight) !important;
+    border-color: var(--uc-content-surface) !important;
+  }
+
+  .category:hover,
+  .sidebar-footer-link:hover {
+    background-color: var(--uc-content-surface) !important;
+  }
+
+  .category[selected] {
+    background-color: var(--uc-content-surface) !important;
+    color: var(--uc-content-accent) !important;
+  }
+
+  addon-card .card,
+  recommended-addon-card .card,
+  .addon-detail-row {
+    background-color: var(--uc-content-highlight) !important;
+    border-color: var(--uc-content-surface) !important;
+    color: var(--uc-content-text) !important;
+  }
+
+  search-addons > search-textbox,
+  input,
+  textarea,
+  menulist {
+    background-color: var(--uc-content-highlight) !important;
+    border-color: var(--uc-content-surface) !important;
+    color: var(--uc-content-text) !important;
+  }
+}

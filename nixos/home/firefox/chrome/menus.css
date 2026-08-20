@@ -1,0 +1,35 @@
+:is(#appMenu-popup, #unified-extensions-panel) {
+  --panel-background: var(--uc-base-colour) !important;
+  --panel-background-color: var(--uc-base-colour) !important;
+  --panel-color: var(--uc-inverted-colour) !important;
+  --panel-text-color: var(--uc-inverted-colour) !important;
+  --panel-border-color: var(--uc-surface-colour) !important;
+  --panel-separator-color: var(--uc-surface-colour) !important;
+  --panel-box-shadow: none !important;
+  --panel-box-shadow-margin: 0px !important;
+  --button-hover-bgcolor: var(--uc-surface-colour) !important;
+  --button-active-bgcolor: var(--uc-highlight-colour) !important;
+}
+
+:is(#appMenu-popup, #unified-extensions-panel)::part(content) {
+  border: 1px solid var(--uc-surface-colour) !important;
+  box-shadow: none !important;
+}
+
+:is(#appMenu-popup, #unified-extensions-panel) :is(
+    .panel-arrowcontent,
+    panelview,
+    .panel-viewstack,
+    .panel-subview-body
+  ) {
+  background-color: var(--uc-base-colour) !important;
+  color: var(--uc-inverted-colour) !important;
+}
+
+:is(#appMenu-popup, #unified-extensions-panel) :is(
+    toolbarbutton,
+    .subviewbutton,
+    .unified-extensions-item
+  ):hover {
+  background-color: var(--uc-surface-colour) !important;
+}

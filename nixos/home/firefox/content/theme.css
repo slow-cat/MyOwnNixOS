@@ -1,0 +1,29 @@
+@-moz-document url-prefix("about:preferences"), url-prefix("about:addons") {
+  :root {
+    --uc-content-base: @base00@;
+    --uc-content-highlight: @base01@;
+    --uc-content-surface: @base02@;
+    --uc-content-muted: @base03@;
+    --uc-content-text: @base05@;
+    --uc-content-accent: @base0D@;
+
+    --in-content-page-background: var(--uc-content-base) !important;
+    --in-content-page-color: var(--uc-content-text) !important;
+    --in-content-box-background: var(--uc-content-highlight) !important;
+    --in-content-box-border-color: var(--uc-content-surface) !important;
+    --in-content-border-color: var(--uc-content-surface) !important;
+    --in-content-button-background: var(--uc-content-highlight) !important;
+    --in-content-button-background-hover: var(--uc-content-surface) !important;
+    --in-content-button-background-active: var(--uc-content-muted) !important;
+    --in-content-primary-button-background: var(--uc-content-accent) !important;
+    --in-content-primary-button-background-hover: color-mix(
+      in srgb,
+      var(--uc-content-accent) 82%,
+      white
+    ) !important;
+    --in-content-focus-outline-color: var(--uc-content-accent) !important;
+    --in-content-accent-color: var(--uc-content-accent) !important;
+    --in-content-link-color: var(--uc-content-accent) !important;
+    color-scheme: dark !important;
+  }
+}

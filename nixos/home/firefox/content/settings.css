@@ -1,0 +1,31 @@
+@-moz-document url-prefix("about:preferences") {
+  html,
+  body,
+  #mainPrefPane {
+    background-color: var(--uc-content-base) !important;
+    color: var(--uc-content-text) !important;
+  }
+
+  #categories {
+    background-color: var(--uc-content-highlight) !important;
+    border-color: var(--uc-content-surface) !important;
+  }
+
+  .category:hover {
+    background-color: var(--uc-content-surface) !important;
+  }
+
+  .category[selected] {
+    background-color: var(--uc-content-surface) !important;
+    color: var(--uc-content-accent) !important;
+  }
+
+  search-textbox,
+  input,
+  textarea,
+  menulist {
+    background-color: var(--uc-content-highlight) !important;
+    border-color: var(--uc-content-surface) !important;
+    color: var(--uc-content-text) !important;
+  }
+}

@@ -10,7 +10,10 @@ let
   patchedSource = pkgs.applyPatches {
     name = "cascade-firefox-css";
     src = source;
-    patches = [ ./firefox-152.patch ];
+    patches = [
+      ./firefox-152.patch
+      ./hide-window-controls.patch
+    ];
   };
 in
 builtins.readFile "${patchedSource}/chrome/includes/cascade-tabs.css"

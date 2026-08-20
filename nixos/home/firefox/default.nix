@@ -8,10 +8,14 @@
 let
   stylixHex = config.lib.stylix.colors.withHashtag;
   userChrome = import ./chrome { inherit pkgs stylixHex; };
+  userContent = import ./content { inherit stylixHex; };
   browserPolicies = import ./browser-policies.nix;
   cookiePolicies = import ./cookies.nix;
   profile = import ./profile.nix { inherit stylixHex; };
   searchConfig = import ./search.nix { inherit pkgs; };
+  hoverMenusAutoconfig = pkgs.writeText "hover-menus.js" (
+    builtins.readFile ./autoconfig/hover-menus.js
+  );
   declarativeExtensions = import (builtins.fetchTarball {
     url = "https://github.com/firefox-extensions-declarative/firefox-extensions-declarative/archive/32bfd276c65167d39ba88dca7ad93eba2ccb47bd.tar.gz";
     sha256 = "0v0v5y9dbmwglriiw3wg4l7lp5d41ij0abmp7m13ig8xs0mlj6qc";
@@ -34,6 +38,7 @@ in
     enable = true;
     package = pkgs.firefox-devedition.override {
       cfg.speechSynthesisSupport = false;
+      extraPrefsFiles = [ hoverMenusAutoconfig ];
     };
     languagePacks = [
       "en-US"
@@ -57,7 +62,7 @@ in
       settings = profile.settings // {
         "xpinstall.signatures.required" = false;
       };
-      inherit userChrome;
+      inherit userChrome userContent;
       search = searchConfig;
     };
   };

@@ -39,6 +39,7 @@ let
     ./toolbar-layout.css
     ./controls.css
     ./appearance.css
+    ./menus.css
     ./autohide.css
     ./urlbar-focus.css
     ./utility-windows.css
