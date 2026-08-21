@@ -1,7 +1,12 @@
 { pkgs }:
 
 {
-  packages = [ pkgs.clang-tools ];
+  packages = [
+    pkgs.clang-tools
+    pkgs.clang
+    pkgs.lld
+    pkgs.lldb
+  ];
   language = {
     name = "cpp";
     language-servers = [

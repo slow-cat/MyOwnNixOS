@@ -1,7 +1,30 @@
 { pkgs }:
-
+let
+  rustOverlay = import (fetchGit {
+    url = "https://github.com/oxalica/rust-overlay.git";
+    ref = "master";
+    shallow = true;
+  });
+  rustPackages = pkgs.extend rustOverlay;
+  rustNightly = rustPackages.rust-bin.selectLatestNightlyWith (
+    toolchain:
+    toolchain.minimal.override {
+      extensions = [
+        "clippy"
+        "rust-analyzer"
+        "rust-src"
+        "rustfmt"
+      ];
+    }
+  );
+in
 {
-  packages = [ pkgs.rustup ];
+
+  packages = [
+    pkgs.openssl
+    pkgs.pkg-config
+    rustNightly
+  ];
   language-server.rust-analyzer = {
     command = "${pkgs.rustup}/bin/rustup";
     args = [

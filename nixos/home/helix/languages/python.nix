@@ -4,6 +4,7 @@
   packages = [
     pkgs.ruff
     pkgs.ty
+    pkgs.uv
   ];
   language-server = {
     ruff = {
