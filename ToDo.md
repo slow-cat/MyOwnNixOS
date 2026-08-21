@@ -26,15 +26,17 @@
 <!-- zsh-auto-completion color problem -->
 <!-- zle のalt-?おかしいundoしかでないような -->
 
-コンフィグとか100凝固得ないよう分離したほうがいいのかしら
-コメントなしで変数名でまとめ上げる書き方にしたい　趣味
-もとのコメント長すぎて読みにくいんで削りたい
+<!-- コンフィグとか100凝固得ないよう分離したほうがいいのかしら -->
+<!-- コメントなしで変数名でまとめ上げる書き方にしたい　趣味 -->
+<!-- もとのコメント長すぎて読みにくいんで削りたい -->
 
-storage.js browser.storage.localここ不安
-DeclarativeフォークのDarkReaderとViolentmonkeyを使用する
-nightlyプログラム記法なさそうlibrewolfはロゴが可愛くない
+<!-- storage.js browser.storage.localここ不安 -->
+<!-- DeclarativeフォークのDarkReaderとViolentmonkeyを使用する -->
+<!-- nightlyプログラム記法なさそうlibrewolfはロゴが可愛くない -->
 
 <!-- cascadeを色書き換えながら使ってるから直書きじゃないほうがいい -->
-MITだしちゃんと引っ張りもと書けば
-firefoxのオートハイド分離する
-機能による分離心がける
+<!-- MITだしちゃんと引っ張りもと書けば -->
+<!-- firefoxのオートハイド分離する -->
+<!-- 機能による分離心がける -->
+そういやswaylockうごかあしてない
+
