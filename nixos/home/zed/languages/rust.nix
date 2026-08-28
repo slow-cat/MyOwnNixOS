@@ -1,7 +1,7 @@
-{ inputs, pkgs }:
+{ pkgs }:
 
 let
-  helixRust = import ../../helix/languages/rust.nix { inherit inputs pkgs; };
+  helixRust = import ../../helix/languages/rust.nix { inherit pkgs; };
   helixRustAnalyzer = helixRust.language-server.rust-analyzer;
 in
 {

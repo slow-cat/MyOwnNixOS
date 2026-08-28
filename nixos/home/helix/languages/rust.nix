@@ -1,6 +1,11 @@
-{ inputs, pkgs }:
+{ pkgs }:
 let
-  rustPackages = pkgs.extend inputs.rust-overlay.overlays.default;
+  rustOverlay = import (fetchGit {
+    url = "https://github.com/oxalica/rust-overlay.git";
+    ref = "master";
+    shallow = true;
+  });
+  rustPackages = pkgs.extend rustOverlay;
   rustNightly = rustPackages.rust-bin.selectLatestNightlyWith (
     toolchain:
     toolchain.minimal.override {

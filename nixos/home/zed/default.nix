@@ -1,14 +1,9 @@
-{
-  inputs,
-  lib,
-  pkgs,
-  ...
-}:
+{ lib, pkgs, ... }:
 
 let
   helixTypos = import ../helix/languages/typos.nix { inherit pkgs; };
   helixVale = import ../helix/languages/vale.nix { inherit pkgs; };
-  languageConfiguration = import ./languages { inherit inputs lib pkgs; };
+  languageConfiguration = import ./languages { inherit lib pkgs; };
   commonLanguageServers = import ./common-language-servers.nix {
     inherit helixTypos helixVale;
   };

@@ -1,5 +1,6 @@
 {
   imports = [
+    ./hardware-configuration.nix
     ./system
     ./modules/stylix.nix
     ./modules/ironbar

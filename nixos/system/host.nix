@@ -1,0 +1,3 @@
+{
+  isQemu = true;
+}

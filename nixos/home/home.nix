@@ -1,12 +1,14 @@
-{ inputs, ... }:
+{ ... }:
 
+let
+  home-manager = fetchTarball "https://github.com/nix-community/home-manager/archive/release-26.05.tar.gz";
+in
 {
   imports = [
-    inputs.home-manager.nixosModules.home-manager
+    (import "${home-manager}/nixos")
   ];
 
   home-manager.backupFileExtension = "hm-backup";
-  home-manager.extraSpecialArgs = { inherit inputs; };
 
   users.users.eve.isNormalUser = true;
   home-manager.users.moamoa = { ... }: {

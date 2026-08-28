@@ -1,8 +1,4 @@
-{
-  inputs,
-  lib,
-  pkgs,
-}:
+{ lib, pkgs }:
 
 let
   languageDefinitions = [
@@ -14,7 +10,7 @@ let
     (import ./markdown.nix)
     (import ./nix.nix { inherit pkgs; })
     (import ./python.nix { inherit pkgs; })
-    (import ./rust.nix { inherit inputs pkgs; })
+    (import ./rust.nix { inherit pkgs; })
     (import ./toml.nix { inherit pkgs; })
     (import ./typst.nix { inherit pkgs; })
   ];

@@ -1,7 +1,10 @@
-{ inputs, pkgs, ... }:
+{ pkgs, ... }:
 
+let
+  stylix = fetchTarball "https://github.com/nix-community/stylix/archive/release-26.05.tar.gz";
+in
 {
-  imports = [ inputs.stylix.nixosModules.stylix ];
+  imports = [ (import stylix).nixosModules.stylix ];
 
   stylix = {
     enable = true;

@@ -1,3 +1,2 @@
 *.qcow2
 nixos/hardware-configuration.nix
-result
