@@ -1,5 +1,6 @@
 {
   config,
+  inputs,
   lib,
   pkgs,
   ...
@@ -16,10 +17,7 @@ let
   hoverMenusAutoconfig = pkgs.writeText "hover-menus.js" (
     builtins.readFile ./autoconfig/hover-menus.js
   );
-  declarativeExtensions = import (builtins.fetchTarball {
-    url = "https://github.com/firefox-extensions-declarative/firefox-extensions-declarative/archive/32bfd276c65167d39ba88dca7ad93eba2ccb47bd.tar.gz";
-    sha256 = "0v0v5y9dbmwglriiw3wg4l7lp5d41ij0abmp7m13ig8xs0mlj6qc";
-  }) { inherit pkgs; };
+  declarativeExtensions = import inputs.firefox-extensions-declarative { inherit pkgs; };
   extensions = import ./extensions {
     inherit
       config

@@ -5,12 +5,11 @@
 }:
 
 let
-  codexVersion = "0.143.0";
   codexWithBun = pkgs.writeShellApplication {
     name = "codex";
     text = ''
       exec ${pkgs.bun}/bin/bun x --bun \
-        --package @openai/codex@${codexVersion} codex "$@"
+        --package @openai/codex@latest codex "$@"
     '';
   };
 in

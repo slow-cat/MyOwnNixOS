@@ -1,8 +1,13 @@
-{ lib, pkgs, ... }:
+{
+  inputs,
+  lib,
+  pkgs,
+  ...
+}:
 
 let
   languageConfiguration = import ./languages {
-    inherit lib pkgs;
+    inherit inputs lib pkgs;
   };
 in
 {

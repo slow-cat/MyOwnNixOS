@@ -1,8 +1,4 @@
-{ ... }:
-
 {
-  _module.args.host = import ./host.nix;
-
   imports = [
     ./audio.nix
     ./base.nix
