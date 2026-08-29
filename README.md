@@ -4,8 +4,7 @@
 
 >[!WARNING]
 >このリポジトリは個人用の NixOS 設定です。
->ユーザー名、Git の作者情報、ディスク UUID、ホスト固有設定を含みます。
->他の環境で利用する場合は、各自の値へ変更してください。
+>ユーザー名やGitのメールアドレス設定、firefoxの拡張など個人的なものが多く含まれます。
 
 ## Qemuでのテスト
 
@@ -39,13 +38,13 @@ sudo nixos-install
 
 1. firefoxのDownloadディレクトリが/tmpになっていない
 
-1. bun codexはlatestにする
+<!-- 1. bun codexはlatestにする -->
 
 1. bubblewrap
 
 1. swaylock多分有効化してない
 
-1. 実機とうまくこのレポジトリどうきさせたい
+<!-- 1. 実機とうまくこのレポジトリどうきさせたい -->
 
 1. erofsで持ってくるlatexの設定
   
