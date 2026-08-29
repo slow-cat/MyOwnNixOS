@@ -1,5 +1,8 @@
 { pkgs, ... }:
 
 {
-  environment.systemPackages = [ pkgs.typst ];
+  environment.systemPackages = with pkgs; [
+    typst
+    libreoffice-qt
+  ];
 }

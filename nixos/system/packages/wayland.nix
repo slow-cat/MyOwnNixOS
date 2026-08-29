@@ -11,6 +11,7 @@
     [
       wf-recorder
       wl-mirror
+      nautilus
     ]
   );
 }

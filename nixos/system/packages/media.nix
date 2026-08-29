@@ -12,5 +12,8 @@ in
     fluidsynth
     soundfont-fluid
     fluids
+    inkscape
+    aseprite
+    krita
   ];
 }

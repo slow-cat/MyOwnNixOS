@@ -2,6 +2,7 @@
 
 {
   environment.systemPackages = with pkgs; [
+    tree-sitter
     wget
     wget2
     aria2

@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ lib, pkgs, ... }:
 
 {
   time.timeZone = "Asia/Tokyo";
@@ -16,6 +16,8 @@
     "nix-command"
     "flakes"
   ];
+
+  nixpkgs.config.allowUnfreePredicate = pkg: lib.getName pkg == "aseprite";
 
   system.stateVersion = "26.05";
 }
