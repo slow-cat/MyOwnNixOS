@@ -1,6 +1,8 @@
 {
+  _module.args.host = import ./host.nix;
+
   imports = [
-    ./hardware-configuration.nix
+    /etc/nixos/hardware-configuration.nix
     ./system
     ./modules/stylix.nix
     ./modules/ironbar
