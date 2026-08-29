@@ -5,7 +5,7 @@
 }:
 
 let
-  codexVersion = "0.143.0";
+  codexVersion = "latest";
   codexWithBun = pkgs.writeShellApplication {
     name = "codex";
     text = ''
