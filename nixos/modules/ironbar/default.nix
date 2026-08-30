@@ -46,6 +46,8 @@ in
     paper-icon-theme
   ];
 
+  services.upower.enable = true;
+
   fonts.packages = with pkgs; [
     nerd-fonts.jetbrains-mono
   ];

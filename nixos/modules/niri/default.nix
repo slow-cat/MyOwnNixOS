@@ -73,7 +73,6 @@ in
     dash
     brightnessctl
     pulseaudio
-    swayidle
     wl-clipboard
     grim
     slurp
@@ -93,13 +92,6 @@ in
     enable = true;
     alsa.enable = true;
     pulse.enable = true;
-  };
-
-  systemd.user.services.niri-swayidle = {
-    description = "Idle management for niri";
-    wantedBy = [ "graphical-session.target" ];
-    partOf = [ "graphical-session.target" ];
-    after = [ "graphical-session.target" ];
   };
 
   systemd.user.services.niri-clipboard-sync = {
