@@ -1,5 +1,8 @@
 { pkgs }:
 
+let
+  codexAcp = import ./codex-acp.nix { inherit pkgs; };
+in
 {
   project_panel.dock = "left";
   outline_panel.dock = "left";
@@ -8,7 +11,7 @@
 
   agent_servers.codex = {
     type = "custom";
-    command = "${pkgs.codex-acp}/bin/codex-acp";
+    command = "${codexAcp}/bin/codex-acp";
     args = [ ];
     env = { };
   };
