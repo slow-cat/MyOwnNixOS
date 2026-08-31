@@ -1,7 +1,10 @@
 { ... }:
 
 let
-  home-manager = fetchTarball "https://github.com/nix-community/home-manager/archive/release-26.05.tar.gz";
+  home-manager = fetchGit {
+    url = "https://github.com/nix-community/home-manager.git";
+    ref = "release-26.05";
+  };
 in
 {
   imports = [

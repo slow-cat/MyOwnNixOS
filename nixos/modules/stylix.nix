@@ -1,7 +1,10 @@
 { pkgs, ... }:
 
 let
-  stylix = fetchTarball "https://github.com/nix-community/stylix/archive/release-26.05.tar.gz";
+  stylix = fetchGit {
+    url = "https://github.com/nix-community/stylix.git";
+    ref = "release-26.05";
+  };
 in
 {
   imports = [ (import stylix).nixosModules.stylix ];
