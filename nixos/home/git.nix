@@ -3,6 +3,9 @@ let
   private = if builtins.pathExists /etc/nixos/private.nix then import /etc/nixos/private.nix else { };
 in
 {
+  programs.gh = {
+    enable = true;
+  };
   programs.git = {
     enable = true;
     settings = {
