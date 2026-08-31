@@ -6,6 +6,14 @@ let
     shallow = true;
   });
   rustPackages = pkgs.extend rustOverlay;
+  rustStable = rustPackages.rust-bin.stable."1.89.0".minimal.override {
+    extensions = [
+      "clippy"
+      "rust-analyzer"
+      "rust-src"
+      "rustfmt"
+    ];
+  };
   rustNightly = rustPackages.rust-bin.selectLatestNightlyWith (
     toolchain:
     toolchain.minimal.override {
@@ -23,22 +31,20 @@ in
   packages = [
     pkgs.openssl
     pkgs.pkg-config
-    rustNightly
+    pkgs.rustup
   ];
+  activation = ''
+    $DRY_RUN_CMD ${pkgs.rustup}/bin/rustup toolchain link nix-1.89 ${rustStable}
+    $DRY_RUN_CMD ${pkgs.rustup}/bin/rustup toolchain link nix-nightly ${rustNightly}
+    $DRY_RUN_CMD ${pkgs.rustup}/bin/rustup default nix-nightly
+  '';
   language-server.rust-analyzer = {
-    command = "${pkgs.rustup}/bin/rustup";
-    args = [
-      "run"
-      "nightly"
-      "rust-analyzer"
-    ];
+    command = "${pkgs.rustup}/bin/rust-analyzer";
+    args = [ ];
     config = {
-      checkOnSave.enable = true;
+      checkOnSave = true;
       procMacro.enable = true;
-      cargo = {
-        enable = true;
-        buildScripts.enable = true;
-      };
+      cargo.buildScripts.enable = true;
       files.excludeDirs = [
         "target"
         ".git"

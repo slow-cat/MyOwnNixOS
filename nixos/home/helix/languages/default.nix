@@ -25,9 +25,11 @@ let
   sharedLanguagePackages = lib.concatMap (definition: definition.packages) sharedLanguageDefinitions;
   languageSpecificServers = map (definition: definition.language-server or { }) languageDefinitions;
   languagePackages = lib.concatMap (definition: definition.packages or [ ]) languageDefinitions;
+  languageActivations = map (definition: definition.activation or "") languageDefinitions;
 in
 {
   packages = lib.unique (sharedLanguagePackages ++ languagePackages);
+  activation = lib.concatStringsSep "\n" languageActivations;
   config = {
     language-server = lib.foldl' lib.recursiveUpdate { } (
       sharedLanguageServers ++ languageSpecificServers

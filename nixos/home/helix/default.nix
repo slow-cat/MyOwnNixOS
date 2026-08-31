@@ -7,6 +7,9 @@ let
 in
 {
   home.packages = languageConfiguration.packages;
+  home.activation.linkRustToolchains = lib.hm.dag.entryAfter [
+    "writeBoundary"
+  ] languageConfiguration.activation;
 
   programs.helix = {
     enable = true;
