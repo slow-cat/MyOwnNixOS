@@ -1,3 +1,3 @@
 {
-  isQemu = false;
+  isQemu = true;
 }

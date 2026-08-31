@@ -1,5 +1,12 @@
 {
-  _module.args.host = import ./host.nix;
+  _module.args.host =
+    { isQemu = false; }
+    // (
+      if builtins.pathExists /etc/nixos/host.nix then
+        import /etc/nixos/host.nix
+      else
+        { }
+    );
 
   imports = [
     /etc/nixos/hardware-configuration.nix
