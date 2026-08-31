@@ -4,10 +4,10 @@ let
   nixdSettings = {
     nixpkgs.expr = "import <nixpkgs> { }";
     # formatting.command = [ "nixfmt" ];
-    # options = {
-    #   nixos.expr = "(import <nixpkgs/nixos> { configuration = /etc/nixos/configuration.nix; }).options";
-    #   home_manager.expr = "(import <nixpkgs/nixos> { configuration = /etc/nixos/configuration.nix; }).options.home-manager.users.type.getSubOptions []";
-    # };
+    options = {
+      nixos.expr = "(import <nixpkgs/nixos> { configuration = /etc/nixos/configuration.nix; }).options";
+      home_manager.expr = "(import <nixpkgs/nixos> { configuration = /etc/nixos/configuration.nix; }).options.home-manager.users.type.getSubOptions []";
+    };
   };
 in
 {
