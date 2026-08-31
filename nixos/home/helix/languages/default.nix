@@ -12,6 +12,7 @@ let
     (import ./latex.nix { inherit pkgs; })
     (import ./markdown.nix)
     (import ./nix.nix { inherit pkgs; })
+    (import ./lua.nix { inherit pkgs lib; })
     (import ./python.nix { inherit pkgs; })
     (import ./rust.nix { inherit pkgs; })
     (import ./toml.nix { inherit pkgs; })
