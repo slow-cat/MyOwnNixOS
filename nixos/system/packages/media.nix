@@ -15,5 +15,6 @@ in
     inkscape
     aseprite
     krita
+    viu
   ];
 }
