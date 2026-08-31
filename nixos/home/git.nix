@@ -1,9 +1,15 @@
 { pkgs, ... }:
-
+let
+  private = if builtins.pathExists /etc/nixos/private.nix then import /etc/nixos/private.nix else { };
+in
 {
   programs.git = {
     enable = true;
-    settings.pager.reflog = "${pkgs.delta}/bin/delta";
+    settings = {
+      pager.reflog = "${pkgs.delta}/bin/delta";
+      init.defaultBranch = "main";
+    }
+    // (if private ? git then { user = private.git; } else { });
   };
 
   programs.delta = {
