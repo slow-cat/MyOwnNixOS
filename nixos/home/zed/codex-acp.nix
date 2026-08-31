@@ -9,6 +9,6 @@ pkgs.buildFHSEnv {
   ];
   runScript = pkgs.writeShellScript "codex-acp-run" ''
     exec ${pkgs.bun}/bin/bun x --bun \
-      --package @zed-industries/codex-acp@latest codex-acp "$@"
+      --package @agentclientprotocol/codex-acp@latest codex-acp "$@"
   '';
 }
