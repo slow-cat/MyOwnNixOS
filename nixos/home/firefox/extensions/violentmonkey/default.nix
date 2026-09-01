@@ -42,7 +42,16 @@ let
       ./managed-policy.patch
       ./imagemagick-icons.patch
     ];
-    nativeBuildInputs = (previous.nativeBuildInputs or [ ]) ++ [ pkgs.imagemagick ];
+    nativeBuildInputs = (previous.nativeBuildInputs or [ ]) ++ [
+      pkgs.imagemagick
+      pkgs.strip-nondeterminism
+    ];
+    postBuild = (previous.postBuild or "") + ''
+      strip-nondeterminism violentmonkey.xpi
+    '';
+    outputHashMode = "recursive";
+    outputHashAlgo = "sha256";
+    outputHash = "sha256-1GHggN+JLLrJAchVyo5pEWOFy/EflSJeu261fqEdGZE=";
   });
   extensionXpi = "${extension}/share/mozilla/extensions/{ec8030f7-c20a-464f-9b0e-13a3a9e97384}/${extensionId}.xpi";
 in

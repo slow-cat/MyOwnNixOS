@@ -9,8 +9,12 @@ let
   stylixHex = config.lib.stylix.colors.withHashtag;
   userChrome = import ./chrome { inherit pkgs stylixHex; };
   userContent = import ./content { inherit stylixHex; };
-  browserPolicies = import ./browser-policies.nix;
   cookiePolicies = import ./cookies.nix;
+  browserPolicies = import ./browser-policies.nix {
+    inherit lib;
+    firefoxVersion = pkgs.firefox-devedition.version;
+    cookieExceptions = cookiePolicies.Cookies.Allow;
+  };
   profile = import ./profile.nix { inherit stylixHex; };
   searchConfig = import ./search.nix { inherit pkgs; };
   hoverMenusAutoconfig = pkgs.writeText "hover-menus.js" (
@@ -33,6 +37,12 @@ in
 {
   home.activation = extensions.activation;
   xdg.configFile = extensions.xdgConfigFile;
+
+  home.packages = [
+    (pkgs.writeShellScriptBin "firefox" ''
+      exec firefox-devedition "$@"
+    '')
+  ];
 
   programs.firefox = {
     enable = true;

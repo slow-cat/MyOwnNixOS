@@ -94,5 +94,13 @@ in
     "font.name.sans-serif.ja" = "Biz UDPGothic";
     "font.name.serif.ja" = "Biz UDPMincho";
     "font.default.x-western" = "sans-serif";
+
+    # "services.sync.prefs.sync.privacy.sanitize.sanitizeOnShutdown" = true;
+    # "privacy.history.custom" = true;
+    # "privacy.clearOnShutdown.cookies" = true;
+    # "privacy.clearOnShutdown.siteSettings" = false;
+
+    # "privacy.clearOnShutdown_v2.cookiesAndStorage" = true;
+    # "privacy.clearOnShutdown_v2.siteSettings" = false;
   };
 }

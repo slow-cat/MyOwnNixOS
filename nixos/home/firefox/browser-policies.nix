@@ -1,4 +1,10 @@
 {
+  lib,
+  firefoxVersion,
+  cookieExceptions,
+}:
+
+{
   AppAutoUpdate = false;
   BackgroundAppUpdate = false;
 
@@ -30,6 +36,8 @@
   HardwareAcceleration = true;
   OfferToSaveLogins = true;
   DefaultDownloadDirectory = "/tmp";
+  DownloadDirectory = "/tmp";
+  PromptForDownloadLocation = true;
 
   Preferences = {
     "ui.systemUsesDarkTheme" = {
@@ -57,5 +65,17 @@
       Status = "locked";
       Type = "boolean";
     };
+  };
+  SanitizeOnShutdown = {
+    Cookies = true;
+    Cache = true;
+    History = true;
+    FormData = true;
+    Sessions = true;
+    SiteSettings = false;
+    Locked = false;
+  }
+  // lib.optionalAttrs (lib.versionAtLeast firefoxVersion "154") {
+    Exceptions = cookieExceptions;
   };
 }
