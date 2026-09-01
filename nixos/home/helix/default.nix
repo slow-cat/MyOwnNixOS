@@ -18,4 +18,5 @@ in
     languages = languageConfiguration.config;
     themes = import ./themes.nix;
   };
+  home.sessionVariables.EDITOR = "hx";
 }
