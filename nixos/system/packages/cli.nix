@@ -26,5 +26,6 @@
     sd
     ripgrep
     dash
+    impala
   ];
 }
