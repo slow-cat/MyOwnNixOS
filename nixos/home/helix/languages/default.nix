@@ -34,6 +34,9 @@ in
 {
   packages = lib.unique (sharedLanguagePackages ++ languagePackages);
   activation = lib.concatStringsSep "\n" languageActivations;
+  sessionVariables = lib.foldl' lib.recursiveUpdate { } (
+    map (definition: definition.home.sessionVariables or { }) languageDefinitions
+  );
   config = {
     language-server = lib.foldl' lib.recursiveUpdate { } (
       sharedLanguageServers ++ languageSpecificServers

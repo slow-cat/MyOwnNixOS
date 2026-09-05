@@ -33,6 +33,7 @@ in
     pkgs.pkg-config
     pkgs.rustup
   ];
+  home.sessionVariables.PKG_CONFIG_PATH = "${pkgs.openssl.dev}/lib/pkgconfig";
   activation = ''
     $DRY_RUN_CMD ${pkgs.rustup}/bin/rustup toolchain link nix-1.89 ${rustStable}
     $DRY_RUN_CMD ${pkgs.rustup}/bin/rustup toolchain link nix-nightly ${rustNightly}
