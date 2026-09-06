@@ -16,5 +16,6 @@
     ./packages/web.nix
     ./storage.nix
     ./user.nix
+    ./graphics.nix
   ];
 }

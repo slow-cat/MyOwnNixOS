@@ -23,6 +23,10 @@ let
         "rust-src"
         "rustfmt"
       ];
+      targets = [
+        "wasm32-unknown-unknown"
+        "x86_64-unknown-linux-musl"
+      ];
     }
   );
 in
