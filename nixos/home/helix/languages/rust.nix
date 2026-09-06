@@ -1,5 +1,7 @@
 { pkgs }:
 let
+  muslCc = pkgs.pkgsCross.musl64.stdenv.cc;
+  muslGcc = "${muslCc}/bin/${muslCc.targetPrefix}gcc";
   rustOverlay = import (fetchGit {
     url = "https://github.com/oxalica/rust-overlay.git";
     ref = "master";
@@ -38,6 +40,9 @@ in
     pkgs.rustup
   ];
   home.sessionVariables.PKG_CONFIG_PATH = "${pkgs.openssl.dev}/lib/pkgconfig";
+  # Run the compiler on glibc while producing code for musl.
+  home.sessionVariables.CC_x86_64_unknown_linux_musl = muslGcc;
+  home.sessionVariables.CARGO_TARGET_X86_64_UNKNOWN_LINUX_MUSL_LINKER = muslGcc;
   activation = ''
     $DRY_RUN_CMD ${pkgs.rustup}/bin/rustup toolchain link nix-1.89 ${rustStable}
     $DRY_RUN_CMD ${pkgs.rustup}/bin/rustup toolchain link nix-nightly ${rustNightly}
