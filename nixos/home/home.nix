@@ -21,6 +21,7 @@ in
       ./bottom.nix
       ./broot.nix
       ./bun.nix
+      ./codex.nix
       ./fcitx5.nix
       ./firefox
       ./fzf.nix

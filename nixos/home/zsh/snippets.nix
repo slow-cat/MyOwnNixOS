@@ -2,7 +2,6 @@
 
 {
   shellSetup = ''
-    export LD_LIBRARY_PATH="/usr/local/lib''${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}"
     WORDCHARS='*?_-.[]~=/&;!#$%^(){}<>'
   '';
 
@@ -136,7 +135,12 @@
       local ERROR DEFAULT PYTHON
       ERROR=""
       (( exit_status != 0 )) && ERROR="%B%F{red}$exit_status %f%b"
-      DEFAULT='%B%F{blue}%n%f@%m%b %~'
+      if [[ -n $IN_NIX_SHELL ]]; then
+        USER="%F{green}nix-shell"
+      else
+        USER="%F{blue}%n"
+      fi
+      DEFAULT='%B$USER%f@%m%b %~'
       if [[ -n $VIRTUAL_ENV_PROMPT ]]; then
         PYTHON="%F{yellow}[$CYAN$VIRTUAL_ENV_PROMPT%F{yellow}]%f"
       else
