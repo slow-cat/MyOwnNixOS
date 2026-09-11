@@ -70,4 +70,7 @@ in
   corn = lib.concatMapStringsSep "\n" (element: element.corn) cornOrder;
   css = lib.concatMapStringsSep "\n" (element: element.css) cssOrder;
   assets = lib.foldl' lib.recursiveUpdate { } (map (element: element.assets) cornOrder);
+  ironvarDefaults = lib.foldl' lib.recursiveUpdate { } (
+    map (element: element.ironvarDefaults or { }) cornOrder
+  );
 }

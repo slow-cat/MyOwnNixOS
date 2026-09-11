@@ -34,6 +34,11 @@ let
             $config_dir = "${ironbarAssets}"
     ${elements.corn}
         } in {
+            ironvar_defaults = {
+    ${lib.concatStringsSep "\n" (
+      lib.mapAttrsToList (name: value: "${name} = ${builtins.toJSON value}") elements.ironvarDefaults
+    )}
+            }
     ${import ./bar.nix}
         }
   '';
