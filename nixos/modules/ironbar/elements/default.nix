@@ -23,6 +23,7 @@ let
     brightness = import ./brightness.nix args;
     clipboard = import ./clipboard.nix args;
     clock = import ./clock.nix args;
+    codex = import ./codex.nix args;
     cpu = import ./cpu.nix args;
     launcher = import ./launcher.nix args;
     memory = import ./memory.nix args;
@@ -47,6 +48,7 @@ let
     tray
     clock
     bluetooth
+    codex
     notifications
     brightness
     power

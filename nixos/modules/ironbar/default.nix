@@ -9,6 +9,10 @@ let
   stylixColors = config.lib.stylix.colors;
   stylixHex = stylixColors.withHashtag;
   ironbarFont = config.stylix.fonts.monospace.name;
+  codexTypelibs = lib.makeSearchPath "lib/girepository-1.0" [
+    pkgs.libsoup_3
+    pkgs.json-glib
+  ];
 
   elements = import ./elements {
     inherit
@@ -53,6 +57,7 @@ in
   ];
 
   environment.sessionVariables = {
+    GI_TYPELIB_PATH = codexTypelibs;
     IRONBAR_CONFIG = toString ironbarConfig;
     IRONBAR_CSS = toString ironbarCss;
   };
@@ -68,6 +73,7 @@ in
       ironbarAssets
     ];
     environment = {
+      GI_TYPELIB_PATH = codexTypelibs;
       IRONBAR_CONFIG = toString ironbarConfig;
       IRONBAR_CSS = toString ironbarCss;
     };

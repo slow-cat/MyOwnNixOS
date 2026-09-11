@@ -6,5 +6,5 @@
 
   start = [ $workspaces ]
   center = []
-  end = [ $brightness $battery $cpu_button $mem_button $temp_info $clipboard $volume $bluez $clock $clock_widget $tray_widget $power_menu ]
+  end = [ $brightness $battery $cpu_button $mem_button $temp_info $clipboard $volume $bluez $codex_widget $clock $clock_widget $tray_widget $power_menu ]
 ''

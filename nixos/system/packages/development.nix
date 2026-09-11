@@ -10,6 +10,9 @@
     [
       strace
       silicon
+      man-pages-posix
+      man-pages
     ]
   );
+  documentation.man.cache.enable = true;
 }
