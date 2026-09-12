@@ -13,5 +13,7 @@
     ./modules/vale.nix
     ./modules/latex.nix
     ./home/home.nix
-  ];
+  ]
+  # ++ [ ./modules/steam.nix ]
+  ;
 }

@@ -1,17 +1,36 @@
 { pkgs }:
-
+let
+  _ = ''
+      curl -s https://api.github.com/repos/openai/codex/releases|jq -r '
+       map(select(.prerelease==false  and (.tag_name | startswith("rust-v"))))|.[]|{ 
+          tag: .tag_name,
+          codex:
+            (.assets[]
+              | select(.name == "codex-x86_64-unknown-linux-musl.tar.gz")
+              | .digest
+              | sub("^sha256:"; "")),
+          host:
+            (.assets[]
+              | select(.name == "codex-code-mode-host-x86_64-unknown-linux-musl.tar.gz") 
+              | .digest
+              | sub("^sha256:"; ""))
+        }
+      | "\(.tag) \ncodex: \(.codex) \nhost : \(.host)\n"
+    '
+  '';
+in
 pkgs.stdenvNoCC.mkDerivation (finalAttrs: {
   pname = "codex";
-  version = "0.153.4";
+  version = "0.154.0";
 
   src = pkgs.fetchurl {
     url = "https://github.com/openai/codex/releases/download/rust-v${finalAttrs.version}/codex-x86_64-unknown-linux-musl.tar.gz";
-    sha256 = "f479424eca092484dc40d87ae28c44f4cc40234a60045d6131e493800d814a30";
+    sha256 = "d7e18b2597ae8f242f5f31ee9e90deef48dbc9edd634d9868fb6435d08c07f02";
   };
 
   codeModeHost = pkgs.fetchurl {
     url = "https://github.com/openai/codex/releases/download/rust-v${finalAttrs.version}/codex-code-mode-host-x86_64-unknown-linux-musl.tar.gz";
-    sha256 = "f95830a869590957664bbfc67bccb08773806b693670baf15908176f89b4cd31";
+    sha256 = "a68df7cca23c6da7cde175677df7de61c73a234add1333a1254b86d641af01f7";
   };
 
   nativeBuildInputs = [

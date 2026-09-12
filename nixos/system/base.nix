@@ -17,7 +17,13 @@
     "flakes"
   ];
 
-  nixpkgs.config.allowUnfreePredicate = pkg: lib.getName pkg == "aseprite";
+  nixpkgs.config.allowUnfreePredicate =
+    pkg:
+    builtins.elem (lib.getName pkg) [
+      "aseprite"
+      # "steam"
+      # "steam-unwrapped"
+    ];
 
   system.stateVersion = "26.05";
 }
