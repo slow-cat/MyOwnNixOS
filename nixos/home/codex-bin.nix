@@ -1,36 +1,38 @@
 { pkgs }:
 let
-  _ = ''
-      curl -s https://api.github.com/repos/openai/codex/releases|jq -r '
-       map(select(.prerelease==false  and (.tag_name | startswith("rust-v"))))|.[]|{ 
-          tag: .tag_name,
-          codex:
-            (.assets[]
-              | select(.name == "codex-x86_64-unknown-linux-musl.tar.gz")
-              | .digest
-              | sub("^sha256:"; "")),
-          host:
-            (.assets[]
-              | select(.name == "codex-code-mode-host-x86_64-unknown-linux-musl.tar.gz") 
-              | .digest
-              | sub("^sha256:"; ""))
-        }
-      | "\(.tag) \ncodex: \(.codex) \nhost : \(.host)\n"
-    '
-  '';
+  lib = pkgs.lib;
+  releasesInfo = builtins.fetchurl "https://api.github.com/repos/openai/codex/releases";
+  rustReleases =
+    releasesInfo
+    |> builtins.readFile
+    |> builtins.fromJSON
+    |> builtins.filter (r: !r.prerelease && !r.draft && lib.hasPrefix "rust-v" r.tag_name);
+  release = builtins.head rustReleases;
+  version = lib.removePrefix "rust-v" release.tag_name;
+
+  asset =
+    name:
+    lib.findFirst (a: a.name == name) (throw "Codex release asset not found: ${name}") release.assets;
+
+  digest = name: lib.removePrefix "sha256:" (asset name).digest;
+
+  codexHash = digest "codex-x86_64-unknown-linux-musl.tar.gz";
+
+  hostHash = digest "codex-code-mode-host-x86_64-unknown-linux-musl.tar.gz";
 in
+
 pkgs.stdenvNoCC.mkDerivation (finalAttrs: {
   pname = "codex";
-  version = "0.154.0";
+  inherit version;
 
   src = pkgs.fetchurl {
     url = "https://github.com/openai/codex/releases/download/rust-v${finalAttrs.version}/codex-x86_64-unknown-linux-musl.tar.gz";
-    sha256 = "d7e18b2597ae8f242f5f31ee9e90deef48dbc9edd634d9868fb6435d08c07f02";
+    sha256 = codexHash;
   };
 
   codeModeHost = pkgs.fetchurl {
     url = "https://github.com/openai/codex/releases/download/rust-v${finalAttrs.version}/codex-code-mode-host-x86_64-unknown-linux-musl.tar.gz";
-    sha256 = "a68df7cca23c6da7cde175677df7de61c73a234add1333a1254b86d641af01f7";
+    sha256 = hostHash;
   };
 
   nativeBuildInputs = [

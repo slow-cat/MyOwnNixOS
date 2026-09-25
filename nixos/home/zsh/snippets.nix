@@ -25,9 +25,12 @@
         --bind "change:reload:$rg_prefix {q} . || true" \
         --delimiter : \
         --nth 4.. \
-        --with-nth 1,2,4.. \
-        --preview-window=right:70%:wrap:+{2} \
+        --with-nth 1,2.. \
+        --preview-window=right:70%:wrap:+{2}/2 \
         --preview '${pkgs.bat}/bin/bat --style=numbers --color=always --highlight-line {2} {1} 2>/dev/null || ${pkgs.coreutils}/bin/nl -ba {1}'
+    		--bind 'alt-/:change-preview-window(60%|80%|hidden|)' \
+    		--bind 'alt-k:preview-half-page-up,alt-j:preview-half-page-down' \
+    		--bind 'enter:execute(${pkgs.helix}/bin/hx {1} +{2})+reload($RG_PREFIX {q} . || true)'
     }
   '';
 
