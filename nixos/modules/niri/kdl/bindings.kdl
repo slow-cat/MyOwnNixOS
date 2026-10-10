@@ -30,6 +30,17 @@ binds {
     Mod+Shift+K     { move-window-up; }
     Mod+Shift+L     { move-column-right; }
 
+    // Move windows to another monitor
+    Mod+Shift+Ctrl+Left  { move-window-to-monitor-left; }
+    Mod+Shift+Ctrl+Right { move-window-to-monitor-right; }
+    Mod+Shift+Ctrl+Up    { move-window-to-monitor-up; }
+    Mod+Shift+Ctrl+Down  { move-window-to-monitor-down; }
+
+    Mod+Shift+Ctrl+H  { move-window-to-monitor-left; }
+    Mod+Shift+Ctrl+J { move-window-to-monitor-right; }
+    Mod+Shift+Ctrl+K    { move-window-to-monitor-up; }
+    Mod+Shift+Ctrl+L { move-window-to-monitor-down; }
+
     // Workspaces 1-10 (0 maps to 10)
     Mod+1 { focus-workspace 1; }
     Mod+2 { focus-workspace 2; }
