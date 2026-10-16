@@ -27,7 +27,7 @@ in
       type = "button"
       name = "stopwatch-reset"
       label = "Reset"
-      on_click = "!ironbar var set stopwatch_cmd reset:$(date +%s%N)"
+      on_click = "!${pkgs.ironbar}/bin/ironbar var set stopwatch_cmd reset:$(${pkgs.coreutils}/bin/date +%s%N)"
     }
 
     $stopwatch_toggle = {
@@ -42,7 +42,7 @@ in
           height = 56
         }
       ]
-      on_click = "!ironbar var set stopwatch_cmd toggle:$(date +%s%N)"
+      on_click = "!${pkgs.ironbar}/bin/ironbar var set stopwatch_cmd toggle:$(${pkgs.coreutils}/bin/date +%s%N)"
     }
 
     $stopwatch_popup = [
