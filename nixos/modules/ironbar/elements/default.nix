@@ -31,6 +31,7 @@ let
     notifications = import ./notifications.nix args;
     power = import ./power.nix args;
     systemInfo = import ./system-info.nix args;
+    timer = import ./timer.nix args;
     tray = import ./tray.nix args;
     volume = import ./volume.nix args;
     workspaces = import ./workspaces.nix args;
@@ -47,6 +48,7 @@ let
     volume
     tray
     clock
+    timer
     bluetooth
     codex
     notifications
@@ -60,6 +62,7 @@ let
     music
     notifications
     systemInfo
+    timer
     tray
     volume
     workspaces

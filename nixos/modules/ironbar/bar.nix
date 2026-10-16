@@ -5,6 +5,6 @@
   popup_autohide = true
 
   start = [ $workspaces ]
-  center = []
+  center = [ $timer_widget ]
   end = [ $brightness $battery $cpu_button $mem_button $temp_info $clipboard $volume $bluez $codex_widget $clock $clock_widget $tray_widget $power_menu ]
 ''
