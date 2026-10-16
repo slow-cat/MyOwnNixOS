@@ -1,4 +1,4 @@
-{ host, ... }:
+{ config, host, ... }:
 let
   dispatcher =
     if builtins.pathExists /etc/nixos/private_dispatcher.nix then
@@ -19,6 +19,11 @@ in
       enable = true;
       settings.Settings.AutoConnect = !host.isQemu;
     };
+    firewall = {
+      enable = true;
+      trustedInterfaces = [ config.services.tailscale.interfaceName ];
+      allowedUDPPorts = [ config.services.tailscale.port ];
+    };
   };
   services.resolved.enable = !host.isQemu;
   services.networkd-dispatcher = dispatcher;
@@ -30,4 +35,13 @@ in
       KbdInteractiveAuthentication = true;
     };
   };
+  services.tailscale = {
+    enable = true;
+  };
+  # This avoids the "iptables-compat" translation layer issues.
+  systemd.services.tailscaled.serviceConfig.Environment = [
+    "TS_DEBUG_FIREWALL_MODE=nftables"
+  ];
+  systemd.network.wait-online.enable = false;
+  boot.initrd.systemd.network.wait-online.enable = false;
 }
