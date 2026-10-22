@@ -1,8 +1,8 @@
 { pkgs, ... }:
 let
   source = fetchGit {
-    url = "ssh://git@github.com/moamoa/steelix-fzgrep.git";
-    ref = "refs/heads/main";
+    url = "ssh://git@github.com/slow-cat/steelix-fzgrep.git";
+    ref = "refs/heads/master";
   };
   fzgrep = import "${source}/steelix-fzgrep.nix" { inherit pkgs; };
 
@@ -13,7 +13,7 @@ in
     (require (only-in "${fzgrep}/share/steelix-fzgrep/fzgrep.scm" fzgrep))
     (provide fzgrep)
   '';
-  sdg.configFile."helix/init.scm".text = ''
+  xdg.configFile."helix/init.scm".text = ''
     (require (only-in "helix/keymaps.scm" keymap))
     (require (only-in "helix/static.scm" cx->current-file))
     (require (only-in "fzgrep/fzgrep.scm"

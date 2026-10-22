@@ -36,6 +36,7 @@ in
       ./wofi.nix
       ./zathura.nix
       ./helix
+      ./steelix
       ./tmux
       ./zed
       ./zsh

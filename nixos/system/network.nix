@@ -44,4 +44,12 @@ in
   ];
   systemd.network.wait-online.enable = false;
   boot.initrd.systemd.network.wait-online.enable = false;
+  systemd.network.links = {
+    "30-random-mac" = {
+      matchConfig.OriginalName = "enp0s20f0u2";
+      linkConfig = {
+        MACAddressPolicy = "random";
+      };
+    };
+  };
 }
